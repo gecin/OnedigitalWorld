@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GECTO – The One Digitalised World</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        /* Additional stats & comments styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 60px 0;
+            text-align: center;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--gold);
+        }
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--green);
+        }
+        .stat-label {
+            font-size: 18px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .comments-section {
+            background: var(--green-bg);
+            border-radius: 40px;
+            padding: 40px;
+            margin: 60px 0;
+        }
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .comment-form input, .comment-form textarea {
+            padding: 12px;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+        }
+        .comment-form textarea {
+            border-radius: 20px;
+            min-height: 80px;
+        }
+        .comment-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .comment-item {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--gold);
+        }
+        .comment-name {
+            font-weight: bold;
+            color: var(--green);
+        }
+        .comment-text {
+            margin-top: 8px;
+            color: #333;
+        }
+        .comment-date {
+            font-size: 12px;
+            color: #888;
+            margin-top: 8px;
+        }
+        .reset-stats-btn, .admin-login-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .admin-login-btn {
+            background: var(--green);
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .admin-panel {
+            background: #f9f9f9;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 30px;
+            border: 2px solid var(--gold);
+            display: none;
+        }
+        .admin-panel h3 {
+            color: var(--green);
+        }
+        .delete-comment-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><img src="gecto-logo.png" alt="GECTO Logo"></div>
+    <button class="menu-btn">☰ MENU</button>
+</header>
+
+<div class="menu-overlay">
+    <button class="close-menu">✕</button>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="projects.html">PROJECTS</a></li>
+        <li><a href="game.html">GAME HUB</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="apply.html">INVEST / JOIN</a></li>
+    </ul>
+</div>
+
+<!-- Hero Slider (unchanged) -->
+<div class="hero-slider">
+    <div class="hero-slide" style="background-image: url('theone.jpg');">
+        <div class="slide-content"><h2>Digital Transformation Starts Here</h2><p>Empowering African businesses with software & gamified solutions.</p><a href="services.html" class="btn">Explore</a></div>
+    </div>
+    <div class="hero-slide" style="background-image: url('gecto.jpg');">
+        <div class="slide-content"><h2>Learn While Playing</h2><p>SkillForge Games – real life skills through fun gameplay.</p><a href="game.html" class="btn">Play Now</a></div>
+    </div>
+    <div class="hero-slide" style="background-image: url('sten.jpg');">
+        <div class="slide-content"><h2>BrandQuest Games</h2><p>Every app includes a promotional game to boost your brand.</p><a href="services.html" class="btn">Get Your Game</a></div>
+    </div>
+    <div class="hero-slide" style="background-image: url('ceo.jpg');">
+        <div class="slide-content"><h2>From Bulawayo to the World</h2><p>Leading Africa's digital revolution with integrity.</p><a href="about.html" class="btn">Our Story</a></div>
+    </div>
+</div>
+
+<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <!-- Why Africa Needs GECTO -->
+    <section style="text-align: center; margin: 60px 0;">
+        <h2 style="color: var(--green);">Why Africa Needs GECTO</h2>
+        <p style="max-width: 800px; margin: 20px auto; font-size: 18px;">We move businesses from paper books to intelligent databases, e‑commerce, and custom apps. Every solution includes a gamified layer that educates and markets your brand.</p>
+        <a href="faq.html" class="btn btn-green">Discover the 5 Reasons</a>
+    </section>
+
+    <!-- Featured Work (unchanged) -->
+    <section>
+        <h2 class="section-title">Featured Work</h2>
+        <div class="featured-grid">
+            <div class="project-card">
+                <img src="mzinyathi.jpg" alt="Mzinyathi Gardens App">
+                <h3>Mzinyathi Gardens App</h3>
+                <p>Complete real estate platform – property listings, virtual tours, tenant management. Built for Zimbabwe.</p>
+            </div>
+            <div class="project-card">
+                <img src="dunamis.jpg" alt="Dunamis Bible Church Brand Identity">
+                <h3>Dunamis Bible Church – Brand Identity</h3>
+                <p>Complete visual identity, posters, and social media templates.</p>
+            </div>
+            <div class="project-card">
+                <img src="model.jpg" alt="Model Portfolio & Promo Flyers">
+                <h3>Model Portfolio & Promo Flyers</h3>
+                <p>Custom graphic designs for models, artists, and events – 20+ projects delivered.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services (unchanged) -->
+    <section>
+        <h2 class="section-title">Core Services</h2>
+        <div class="featured-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&h=350&fit=crop" alt="Web development">
+                <h3>🌐 Web & App Development</h3>
+                <p>Custom websites, Android/iOS apps, e‑commerce platforms.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&h=350&fit=crop" alt="Gamification">
+                <h3>🎮 Gamification & Edutainment</h3>
+                <p>SkillForge (learning games) + BrandQuest (promotional games).</p>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=350&fit=crop" alt="Graphic design">
+                <h3>🎨 Graphic Design</h3>
+                <p>Logo, posters, brand identity, social media management – 15% discount available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Strategy Section (unchanged) -->
+    <div class="game-strategy" style="max-width: 1200px; margin: 60px auto;">
+        <h2 style="color: var(--green); text-align: center; margin-bottom: 30px;">Our Game Strategy: Learn & Earn</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+            <div style="flex: 1;">
+                <img src="one.jpg" alt="GECTO Game Strategy" style="width:100%; border-radius: 24px;">
+            </div>
+            <div style="flex: 1;">
+                <h3 style="color: var(--gold);">SkillForge – Real Skills, Real Fun</h3>
+                <p>We build educational games that teach financial literacy, coding basics, supply chain management, and entrepreneurship. Children and youth learn by playing – gaining practical skills for the future economy.</p>
+                <h3 style="color: var(--gold); margin-top: 20px;">BrandQuest – Marketing Through Play</h3>
+                <p>Every business that partners with GECTO receives a custom promotional game. Customers earn loyalty points, discounts, and rewards while engaging with your brand. This turns passive users into active fans.</p>
+            </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 40px; justify-content: center;">
+            <img src="two.jpg" alt="GECTO Game 2" style="border-radius: 20px; width: 100%; max-width: 280px;">
+            <img src="three.jpg" alt="GECTO Game 3" style="border-radius: 20px; width: 100%; max-width: 280px;">
+            <img src="four.jpg" alt="GECTO Game 4" style="border-radius: 20px; width: 100%; max-width: 280px;">
+        </div>
+    </div>
+
+    <!-- CEO Short Story (unchanged) -->
+    <section>
+        <div class="ceo-story">
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                <img src="stenford-mpofu-home.jpg" alt="Stenford Mpofu - CEO" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 4px solid var(--gold);">
+                <div>
+                    <h3 style="color: var(--green);">Meet Mr Ceo – Stenford Mpofu</h3>
+                    <p>Born in Gwanda and raised in Beitbridge, Stenford completed his studies in Bulawayo. In 2022, he founded <strong>GEC Industries</strong>, and in early 2026 he launched <strong>GECTO</strong> with a single mission: to bring technology to underserved communities. His bold vision, <strong>"The One Digitalised World"</strong>, aims to revolutionise Zimbabwe's digital landscape by 2032. Through GECTO, he is building a legacy of innovation, inclusion, and African excellence.</p>
+                    <a href="about.html" class="btn btn-gold">Read Full Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION (visible to everyone, but numbers come from localStorage) -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" id="visitCount">0</div>
+            <div class="stat-label">Total Website Views</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="engagementTime">0 min</div>
+            <div class="stat-label">Total Time on Site</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="projectCount">25+</div>
+            <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="satisfactionRate">98%</div>
+            <div class="stat-label">Client Satisfaction</div>
+        </div>
+    </div>
+
+    <!-- COMMENTS / REVIEWS SECTION (for all users) -->
+    <div class="comments-section">
+        <h3 style="text-align: center; color: var(--green); margin-bottom: 20px;">What Our Visitors Say</h3>
+        <div class="comment-form">
+            <input type="text" id="commentName" placeholder="Your Name">
+            <textarea id="commentText" placeholder="Share your thoughts about GECTO..."></textarea>
+            <button id="submitComment" class="btn btn-green">Post Review</button>
+        </div>
+        <div id="commentList" class="comment-list">
+            <!-- Comments will appear here -->
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL (hidden by default, only shown after login) -->
+    <div id="adminPanel" class="admin-panel">
+        <h3>🔐 Admin Dashboard</h3>
+        <p><strong>Total Views (users only):</strong> <span id="adminViews">0</span></p>
+        <p><strong>Total Time (users only):</strong> <span id="adminTime">0 min</span></p>
+        <button id="resetStatsBtn" class="reset-stats-btn">Reset All User Stats</button>
+        <button id="logoutAdminBtn" class="reset-stats-btn" style="background: #555;">Logout</button>
+        <hr>
+        <h4>Manage Comments</h4>
+        <div id="adminCommentList"></div>
+    </div>
+
+    <!-- Moving Services Carousel (unchanged) -->
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="web"> Web Development</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1674/1674693.png" alt="app"> Mobile Apps</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991111.png" alt="design"> Graphic Design</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="ecom"> E‑commerce</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/2699/2699923.png" alt="game"> BrandQuest Games</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1903/1903555.png" alt="maintain"> System Maintenance</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/2997/2997669.png" alt="skill"> SkillForge Games</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1065/1065665.png" alt="logo"> Logo Design</div>
+            <!-- duplicate for seamless -->
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="web"> Web Development</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1674/1674693.png" alt="app"> Mobile Apps</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991111.png" alt="design"> Graphic Design</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="ecom"> E‑commerce</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/2699/2699923.png" alt="game"> BrandQuest Games</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1903/1903555.png" alt="maintain"> System Maintenance</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/2997/2997669.png" alt="skill"> SkillForge Games</div>
+            <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1065/1065665.png" alt="logo"> Logo Design</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2026 GECTO – Glorious Eland City Tech One. Bulawayo, Zimbabwe → Gwanda HQ 2029</p>
+        <p style="margin-top: 10px;">#OneDigitalisedWorld #Vision2032</p>
+    </div>
+</footer>
+
+<!-- Admin login button (floating) -->
+<button id="adminLoginBtn" class="admin-login-btn">👑 Admin Login</button>
+
+<script>
+    // ---------- ADMIN SESSION MANAGEMENT ----------
+    const ADMIN_PASSWORD = "GECTOadmin2026";  // change this to your preferred password
+    let isAdmin = sessionStorage.getItem('gecto_admin') === 'true';
+
+    // DOM elements
+    const adminPanel = document.getElementById('adminPanel');
+    const adminLoginBtn = document.getElementById('adminLoginBtn');
+    const logoutAdminBtn = document.getElementById('logoutAdminBtn');
+
+    function showAdminPanel(show) {
+        if (show) {
+            adminPanel.style.display = 'block';
+            adminLoginBtn.style.display = 'none';
+            loadAdminData();
+        } else {
+            adminPanel.style.display = 'none';
+            adminLoginBtn.style.display = 'block';
+        }
+    }
+
+    function loginAdmin() {
+        const pwd = prompt("Enter admin password:");
+        if (pwd === ADMIN_PASSWORD) {
+            sessionStorage.setItem('gecto_admin', 'true');
+            isAdmin = true;
+            showAdminPanel(true);
+            // Reload page to avoid counting admin view
+            location.reload();
+        } else {
+            alert("Wrong password!");
+        }
+    }
+
+    function logoutAdmin() {
+        sessionStorage.removeItem('gecto_admin');
+        isAdmin = false;
+        showAdminPanel(false);
+        location.reload();
+    }
+
+    adminLoginBtn.addEventListener('click', loginAdmin);
+    logoutAdminBtn.addEventListener('click', logoutAdmin);
+
+    // ---------- STATS & COMMONS (only count non-admin visits) ----------
+    // Initialize localStorage keys (for user stats only)
+    if (!localStorage.getItem('gecto_views')) localStorage.setItem('gecto_views', '0');
+    if (!localStorage.getItem('gecto_totalTime')) localStorage.setItem('gecto_totalTime', '0');
+    if (!localStorage.getItem('gecto_comments')) localStorage.setItem('gecto_comments', JSON.stringify([]));
+    if (!localStorage.getItem('gecto_visitStart')) localStorage.setItem('gecto_visitStart', Date.now().toString());
+
+    // Helper to update display of user stats
+    function updateUserStatsDisplay() {
+        const views = parseInt(localStorage.getItem('gecto_views'));
+        document.getElementById('visitCount').innerText = views;
+        let totalSeconds = parseInt(localStorage.getItem('gecto_totalTime'));
+        let hours = Math.floor(totalSeconds / 3600);
+        let minutes = Math.floor((totalSeconds % 3600) / 60);
+        if (hours > 0) {
+            document.getElementById('engagementTime').innerText = `${hours}h ${minutes}m`;
+        } else {
+            document.getElementById('engagementTime').innerText = `${minutes} min`;
+        }
+    }
+
+    // Only count this visit if NOT admin
+    if (!isAdmin) {
+        // Increment view count
+        let views = parseInt(localStorage.getItem('gecto_views')) + 1;
+        localStorage.setItem('gecto_views', views);
+        
+        // Track time for this session
+        let startTime = Date.now();
+        let interval = setInterval(() => {
+            let elapsed = Math.floor((Date.now() - startTime) / 1000);
+            let total = parseInt(localStorage.getItem('gecto_totalTime')) + elapsed;
+            localStorage.setItem('gecto_totalTime', total);
+            startTime = Date.now();
+            updateUserStatsDisplay();
+            if (isAdmin) loadAdminData(); // update admin panel if open
+        }, 10000);
+        
+        window.addEventListener('beforeunload', () => {
+            let finalElapsed = Math.floor((Date.now() - startTime) / 1000);
+            let total = parseInt(localStorage.getItem('gecto_totalTime')) + finalElapsed;
+            localStorage.setItem('gecto_totalTime', total);
+        });
+    } else {
+        // Admin: do NOT count views or time, but still show current stats
+        // (no increment, no time tracking)
+        console.log("Admin session – stats not counted.");
+    }
+
+    // Set project count and satisfaction (static)
+    document.getElementById('projectCount').innerText = "25+";
+    document.getElementById('satisfactionRate').innerText = "98%";
+    updateUserStatsDisplay();
+
+    // ---------- COMMENTS (all users can post, admin can delete) ----------
+    function renderComments(forAdmin = false) {
+        const comments = JSON.parse(localStorage.getItem('gecto_comments'));
+        if (forAdmin) {
+            const container = document.getElementById('adminCommentList');
+            if (!container) return;
+            if (comments.length === 0) {
+                container.innerHTML = '<p>No comments yet.</p>';
+                return;
+            }
+            container.innerHTML = '';
+            comments.forEach((comment, idx) => {
+                const div = document.createElement('div');
+                div.className = 'comment-item';
+                div.innerHTML = `
+                    <div class="comment-name">${escapeHtml(comment.name)}</div>
+                    <div class="comment-text">${escapeHtml(comment.text)}</div>
+                    <div class="comment-date">${comment.date}</div>
+                    <button class="delete-comment-btn" data-index="${idx}">Delete</button>
+                `;
+                container.appendChild(div);
+            });
+            // attach delete events
+            document.querySelectorAll('.delete-comment-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const idx = parseInt(btn.dataset.index);
+                    const commentsArr = JSON.parse(localStorage.getItem('gecto_comments'));
+                    commentsArr.splice(idx, 1);
+                    localStorage.setItem('gecto_comments', JSON.stringify(commentsArr));
+                    renderComments(true);
+                    renderComments(false);
+                });
+            });
+        } else {
+            const container = document.getElementById('commentList');
+            if (comments.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#888;">No reviews yet. Be the first to comment!</p>';
+                return;
+            }
+            container.innerHTML = '';
+            comments.slice().reverse().forEach(comment => {
+                const div = document.createElement('div');
+                div.className = 'comment-item';
+                div.innerHTML = `
+                    <div class="comment-name">${escapeHtml(comment.name)}</div>
+                    <div class="comment-text">${escapeHtml(comment.text)}</div>
+                    <div class="comment-date">${comment.date}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    document.getElementById('submitComment').addEventListener('click', () => {
+        const name = document.getElementById('commentName').value.trim();
+        const text = document.getElementById('commentText').value.trim();
+        if (!name || !text) {
+            alert('Please enter your name and review.');
+            return;
+        }
+        const comments = JSON.parse(localStorage.getItem('gecto_comments'));
+        comments.push({
+            name: name,
+            text: text,
+            date: new Date().toLocaleString()
+        });
+        localStorage.setItem('gecto_comments', JSON.stringify(comments));
+        document.getElementById('commentName').value = '';
+        document.getElementById('commentText').value = '';
+        renderComments(false);
+        if (isAdmin) renderComments(true);
+    });
+
+    // Admin data loading
+    function loadAdminData() {
+        if (!isAdmin) return;
+        document.getElementById('adminViews').innerText = localStorage.getItem('gecto_views');
+        let totalSec = parseInt(localStorage.getItem('gecto_totalTime'));
+        let hrs = Math.floor(totalSec / 3600);
+        let mins = Math.floor((totalSec % 3600) / 60);
+        document.getElementById('adminTime').innerText = hrs > 0 ? `${hrs}h ${mins}m` : `${mins} min`;
+        renderComments(true);
+    }
+
+    document.getElementById('resetStatsBtn').addEventListener('click', () => {
+        if (confirm('Reset all user views, time, and comments? This cannot be undone.')) {
+            localStorage.setItem('gecto_views', '0');
+            localStorage.setItem('gecto_totalTime', '0');
+            localStorage.setItem('gecto_comments', JSON.stringify([]));
+            updateUserStatsDisplay();
+            if (isAdmin) loadAdminData();
+            renderComments(false);
+        }
+    });
+
+    // Initial render
+    renderComments(false);
+    if (isAdmin) {
+        showAdminPanel(true);
+        loadAdminData();
+    } else {
+        showAdminPanel(false);
+    }
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

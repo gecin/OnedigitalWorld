@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GECTO – Invest or Join</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        .apply-container {
+            max-width: 900px;
+            margin: 140px auto 60px;
+            padding: 0 20px;
+        }
+        .choice-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .choice-option {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .choice-option input {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .form-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            display: none;
+        }
+        .form-card.active {
+            display: block;
+        }
+        .form-card h1 {
+            color: var(--green);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .form-card p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--green);
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        .form-group textarea {
+            border-radius: 20px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: var(--green);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .submit-btn:hover {
+            background: var(--green-light);
+            transform: scale(1.02);
+        }
+        .note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        @media (max-width: 600px) {
+            .form-card { padding: 25px; }
+            .choice-option { margin: 0 10px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><img src="gecto-logo.png" alt="GECTO Logo"></div>
+    <button class="menu-btn">☰ MENU</button>
+</header>
+
+<div class="menu-overlay">
+    <button class="close-menu">✕</button>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="projects.html">PROJECTS</a></li>
+        <li><a href="game.html">GAME HUB</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="apply.html">INVEST / JOIN</a></li>
+    </ul>
+</div>
+
+<div class="apply-container">
+    <div class="choice-section">
+        <label class="choice-option">
+            <input type="radio" name="formType" value="investor" checked> 💰 Investor
+        </label>
+        <label class="choice-option">
+            <input type="radio" name="formType" value="membership"> 🤝 Join GECTO (Membership)
+        </label>
+    </div>
+
+    <!-- INVESTOR FORM -->
+    <div id="investorForm" class="form-card active">
+        <h1>Invest in GECTO</h1>
+        <p>Partner with us to build Africa's leading digital transformation powerhouse.</p>
+        <form id="investorApplicationForm">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="investorName" required placeholder="e.g., John Doe">
+            </div>
+            <div class="form-group">
+                <label>Type of Investment *</label>
+                <input type="text" id="investmentType" required placeholder="e.g., Equity, Debt, Grant, Venture Capital, Angel, etc.">
+            </div>
+            <div class="form-group">
+                <label>Why are you investing in GECTO? *</label>
+                <textarea id="investorReason" required placeholder="Share your motivation, expected impact, or strategic interest..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>What are your thoughts on GECTO's vision? *</label>
+                <textarea id="investorVision" required placeholder="Do you believe in 'The One Digitalised World'? How do you see GECTO achieving its 2032 goal?"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Contact (Email or WhatsApp) *</label>
+                <input type="text" id="investorContact" required placeholder="We will reach out to you">
+            </div>
+            <button type="button" class="submit-btn" id="submitInvestor">📤 Send Investor Inquiry</button>
+        </form>
+        <div class="note">
+            Your inquiry will be sent directly to our Investor Relations Manager. We will respond within 5 business days.
+        </div>
+    </div>
+
+    <!-- MEMBERSHIP (JOIN GECTO) FORM -->
+    <div id="membershipForm" class="form-card">
+        <h1>Join the GECTO Team</h1>
+        <p>We are hiring for 30+ key roles – from developers to client success managers.</p>
+        <form id="membershipFormFields">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="memberName" required placeholder="e.g., Tendai Moyo">
+            </div>
+            <div class="form-group">
+                <label>Role You Want *</label>
+                <input type="text" id="memberRole" required placeholder="e.g., Frontend Developer, Game Artist, CMO, etc.">
+            </div>
+            <div class="form-group">
+                <label>Your Address (City & Country) *</label>
+                <input type="text" id="memberAddress" required placeholder="e.g., Bulawayo, Zimbabwe">
+            </div>
+            <div class="form-group">
+                <label>Education (Degree, Certifications, etc.) *</label>
+                <textarea id="memberEducation" required placeholder="List your highest education, relevant courses, or certifications..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Skills (Technical & Soft) *</label>
+                <textarea id="memberSkills" required placeholder="e.g., React, Python, Leadership, Game Design, Project Management..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Why are you interested in joining GECTO? *</label>
+                <textarea id="memberInterest" required placeholder="Tell us what drives you to be part of our digital transformation mission..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>What will you offer to the team? *</label>
+                <textarea id="memberOffer" required placeholder="Describe your experience and how you can contribute to GECTO's growth..."></textarea>
+            </div>
+            <button type="button" class="submit-btn" id="submitMembership">📤 Submit Application</button>
+        </form>
+        <div class="note">
+            Your application will be sent directly to our HR team on WhatsApp. We will contact you if your profile matches any open role.
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2026 GECTO – Glorious Eland City Tech One. #Vision2032</p>
+    </div>
+</footer>
+
+<script>
+    // Radio button toggle
+    const investorRadio = document.querySelector('input[value="investor"]');
+    const membershipRadio = document.querySelector('input[value="membership"]');
+    const investorFormDiv = document.getElementById('investorForm');
+    const membershipFormDiv = document.getElementById('membershipForm');
+
+    function showSelectedForm() {
+        if (investorRadio.checked) {
+            investorFormDiv.classList.add('active');
+            membershipFormDiv.classList.remove('active');
+        } else {
+            membershipFormDiv.classList.add('active');
+            investorFormDiv.classList.remove('active');
+        }
+    }
+
+    investorRadio.addEventListener('change', showSelectedForm);
+    membershipRadio.addEventListener('change', showSelectedForm);
+
+    // Helper: send to WhatsApp
+    function sendToWhatsApp(phoneNumber, message) {
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    // Investor submission
+    document.getElementById('submitInvestor').addEventListener('click', () => {
+        const name = document.getElementById('investorName').value.trim();
+        const invType = document.getElementById('investmentType').value.trim();
+        const reason = document.getElementById('investorReason').value.trim();
+        const vision = document.getElementById('investorVision').value.trim();
+        const contact = document.getElementById('investorContact').value.trim();
+
+        if (!name || !invType || !reason || !vision || !contact) {
+            alert('Please fill in all fields before submitting.');
+            return;
+        }
+
+        const message = `*NEW INVESTOR INQUIRY - GECTO*%0A%0A` +
+            `*Name:* ${name}%0A` +
+            `*Investment Type:* ${invType}%0A` +
+            `*Why investing:* ${reason}%0A` +
+            `*Thoughts on GECTO's vision:* ${vision}%0A` +
+            `*Contact:* ${contact}%0A%0A` +
+            `*Type:* Investor Inquiry`;
+
+        sendToWhatsApp('263788375412', message);
+    });
+
+    // Membership (Join Team) submission
+    document.getElementById('submitMembership').addEventListener('click', () => {
+        const name = document.getElementById('memberName').value.trim();
+        const role = document.getElementById('memberRole').value.trim();
+        const address = document.getElementById('memberAddress').value.trim();
+        const education = document.getElementById('memberEducation').value.trim();
+        const skills = document.getElementById('memberSkills').value.trim();
+        const interest = document.getElementById('memberInterest').value.trim();
+        const offer = document.getElementById('memberOffer').value.trim();
+
+        if (!name || !role || !address || !education || !skills || !interest || !offer) {
+            alert('Please fill in all fields before submitting.');
+            return;
+        }
+
+        const message = `*NEW TEAM APPLICATION - GECTO*%0A%0A` +
+            `*Name:* ${name}%0A` +
+            `*Role Desired:* ${role}%0A` +
+            `*Address:* ${address}%0A` +
+            `*Education:* ${education}%0A` +
+            `*Skills:* ${skills}%0A` +
+            `*Why interested:* ${interest}%0A` +
+            `*What they offer:* ${offer}%0A%0A` +
+            `*Type:* Membership (Join Team)`;
+
+        sendToWhatsApp('263788375412', message);
+    });
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

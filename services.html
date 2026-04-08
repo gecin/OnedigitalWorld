@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GECTO – Our Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for services page */
+        .service-detail {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-detail:hover {
+            transform: translateY(-5px);
+        }
+        .service-detail h3 {
+            color: var(--green);
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .service-detail img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+        .service-detail p {
+            line-height: 1.7;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .sub-service-btn {
+            background: var(--gold);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        .sub-service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .sub-card {
+            background: var(--green-bg);
+            padding: 15px;
+            border-radius: 16px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .quote-btn {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .project-digital {
+            background: #0a0a0a;
+            border-radius: 40px;
+            padding: 50px;
+            margin: 60px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        .project-digital .text {
+            flex: 1;
+        }
+        .project-digital .text h2 {
+            color: var(--gold);
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .project-digital .text p {
+            color: white;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        .project-digital .image {
+            flex: 1;
+        }
+        .project-digital .image img {
+            width: 100%;
+            border-radius: 24px;
+        }
+        @media (max-width: 768px) {
+            .project-digital { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><img src="gecto-logo.png" alt="GECTO Logo"></div>
+    <button class="menu-btn">☰ MENU</button>
+</header>
+
+<div class="menu-overlay">
+    <button class="close-menu">✕</button>
+    <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="services.html">SERVICES</a></li>
+    <li><a href="projects.html">PROJECTS</a></li>
+    <li><a href="game.html">GAME HUB</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="apply.html">CAREERS</a></li>
+</ul>
+</div>
+
+<section style="max-width: 1200px; margin: 120px auto 40px; padding: 0 20px;">
+    <h1 class="section-title">Our Premium Services</h1>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">End‑to‑end digital solutions tailored to African businesses. Every service includes our unique gamification layer.</p>
+
+    <!-- Service 1: Website Development -->
+    <div class="service-detail">
+        <h3> Website Development</h3>
+        <img src="website-dev.jpg" alt="Website Development" onerror="this.src='https://placehold.co/800x400?text=Website+Development'">
+        <p>We build modern, responsive, and lightning‑fast websites that work perfectly on all devices. Our websites are SEO‑optimised to rank high on Google, secure with SSL certificates, and easy to manage with a custom dashboard. We integrate e‑commerce, booking systems, and customer portals. Every website we deliver includes a BrandQuest promotional game to increase user engagement. We also provide lifetime updates and 24/7 support. Whether you need a corporate site, a blog, or a complex web application, GECTO delivers excellence. Our team uses the latest technologies like React, Python-Flask, and Html, Css & Js. We also ensure your website loads in under 2 seconds even on slower networks. Let us turn your vision into a powerful digital presence.</p>
+    </div>
+
+    <!-- Service 2: Mobile App Development -->
+    <div class="service-detail">
+        <h3> Android & iOS App Development</h3>
+        <img src="mobile-apps.jpg" alt="Mobile App Development" onerror="this.src='https://placehold.co/800x400?text=Mobile+Apps'">
+        <p>We create native and cross‑platform mobile applications for Android and iOS that are intuitive, fast, and feature‑rich. Our apps include real‑time databases, push notifications, offline mode, and secure payment gateways. We specialise in e‑commerce apps, social platforms, educational tools, and business management systems. Every app comes with a custom BrandQuest game to boost user retention and brand loyalty. We also offer app store submission support and post‑launch maintenance. Our development process is agile, transparent, and user‑centred. We use Python, Java and React Native to deliver high‑performance apps. From prototype to production, GECTO ensures your app stands out in crowded marketplaces. We also integrate analytics to help you understand user behaviour.</p>
+    </div>
+
+    <!-- Service 3: E‑Commerce Solutions -->
+    <div class="service-detail">
+        <h3> E‑Commerce Solutions</h3>
+        <img src="ecommerce.jpg" alt="E‑Commerce" onerror="this.src='https://placehold.co/800x400?text=E-commerce'">
+        <p>Transform your traditional business into a 24/7 online store with our custom e‑commerce platforms. We integrate inventory management, automated invoicing, multiple payment methods (including mobile money), and shipping logistics. Our e‑commerce sites are secure, scalable, and designed for high conversion rates. We also add a BrandQuest game that rewards customers with discounts and loyalty points, increasing repeat purchases. You'll get a complete dashboard to manage products, orders, and customers. We support both B2B and B2C models. Our solutions are built on WooCommerce, Shopify, or custom PHP frameworks. We also provide training for your staff. Let us help you sell to the world from your location in Zimbabwe or anywhere in Africa.</p>
+    </div>
+
+    <!-- Service 4: System Maintenance & Patching -->
+    <div class="service-detail">
+        <h3> System Maintenance & Patching</h3>
+        <img src="maintenance.jpg" alt="System Maintenance" onerror="this.src='https://placehold.co/800x400?text=Maintenance'">
+        <p>We offer proactive 24/7 monitoring, security patching, and performance optimisation for all your digital assets. Our team detects vulnerabilities before they become problems, applies critical updates automatically, and ensures 99.9% uptime. We handle server maintenance, database optimisation, and backup management. We also provide emergency recovery services in case of breaches or crashes. Our maintenance plans are affordable and customised to your infrastructure. We support Linux and Windows servers, cloud platforms like AWS and Google Cloud, and on‑premise solutions. Regular reports keep you informed about system health. With GECTO, you never have to worry about outdated software or security gaps. We keep your business running smoothly year‑round.</p>
+    </div>
+
+    <!-- Service 5: Game Development (SkillForge + BrandQuest) -->
+    <div class="service-detail">
+        <h3> Game Development – SkillForge & BrandQuest</h3>
+        <img src="game-dev.jpg" alt="Game Development" onerror="this.src='https://placehold.co/800x400?text=Game+Development'">
+        <p>We create two types of games: SkillForge (educational games that teach real‑life skills like finance, coding, and entrepreneurship) and BrandQuest (custom promotional games that make your company known). Our games are HTML5‑based, playable on web and mobile, and include leaderboards, rewards, and analytics. For businesses, the BrandQuest game becomes a viral marketing tool. For schools and individuals, SkillForge provides a fun way to learn. We design engaging storylines, beautiful graphics, and challenging puzzles. We also offer ongoing updates and new level packs. Games can be integrated into your website or app, or published on app stores. Let us turn your audience into active participants.</p>
+    </div>
+
+    <!-- Service 6: Graphic Design (with separate button for sub-services) -->
+    <div class="service-detail">
+        <h3> Graphic Design</h3>
+        <img src="graphic-design.jpg" alt="Graphic Design" onerror="this.src='https://placehold.co/800x400?text=Graphic+Design'">
+        <p>Our creative team delivers stunning visual assets that elevate your brand. We design logos, posters, flyers, social media graphics, business cards, brochures, and complete brand identity packages. We also offer social media management with custom templates and content calendars. All designs are original, high‑resolution, and delivered in multiple formats. We work closely with you to capture your brand's personality and message. Whether you need a single flyer or a full brand overhaul, GECTO provides professional, fast, and affordable graphic design services. Use the discount code from our puzzle game to get 15% off any logo design or branding project.</p>
+        <!-- Sub-services button placed below the paragraph (not attached to heading) -->
+        <button class="sub-service-btn" onclick="toggleSubServices()">View Graphic Design Sub‑Services ↓</button>
+        <div id="sub-services" style="display:none; margin-top:20px;">
+            <div class="sub-service-grid">
+                <div class="sub-card">🎯 Logo Design</div>
+                <div class="sub-card">📄 Poster / Flyer Design</div>
+                <div class="sub-card">🏷️ Brand Identity</div>
+                <div class="sub-card">📱 Social Media Management</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Get a Quotation Button -->
+    <div class="quote-btn">
+        <a href="contact.html" class="btn btn-green" style="font-size: 20px; padding: 14px 40px;">📩 Get a Quotation</a>
+    </div>
+
+    <!-- Featured Services (same as homepage) -->
+    <h2 class="section-title" style="margin-top: 40px;">Featured Services</h2>
+    <div class="featured-grid">
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&h=350&fit=crop" alt="Web development">
+            <h3>Web & App Development</h3>
+            <p>Custom websites and mobile apps tailored to your business.</p>
+        </div>
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&h=350&fit=crop" alt="Gamification">
+            <h3>Gamification & Edutainment</h3>
+            <p>SkillForge learning games + BrandQuest promotional games.</p>
+        </div>
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=350&fit=crop" alt="Graphic design">
+            <h3>Graphic Design</h3>
+            <p>Logos, posters, brand identity, social media templates.</p>
+        </div>
+    </div>
+
+    <!-- Project: ONE DIGITALISED WORLD -->
+    <div class="project-digital">
+        <div class="text">
+            <h2>🌍 The "ONE DIGITALISED WORLD" Project</h2>
+            <p>GECTO’s flagship initiative, led by founder Stenford Mpofu (Mr Ceo), aims to completely digitise Zimbabwe’s economy by 2032. This 7‑year roadmap (2026–2032) focuses on moving traditional businesses from paper books to intelligent databases, e‑commerce, and cloud systems. We target underserved communities, providing affordable software, training, and ongoing support. The project includes building a network of digital hubs in rural areas, offering free basic websites to 100 small businesses, and integrating gamified learning into schools. By 2031, we will establish our headquarters in Gwanda, turning it into a Southern African tech innovation hub. Our goal is to create a blueprint for digital transformation that can be replicated across Africa. Join us in building a future where every person and business is connected, empowered, and ready for the global digital economy.</p>
+        </div>
+        <div class="image">
+            <img src="digital.jpg" alt="One Digitalised World Project" onerror="this.src='https://placehold.co/600x400?text=Digital+World'">
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 GECTO – Glorious Eland City Tech One. Bulawayo, Zimbabwe → Gwanda HQ 2031</p>
+        <p style="margin-top: 10px;">#OneDigitalisedWorld #Vision2032</p>
+    </div>
+</footer>
+
+<script>
+    function toggleSubServices() {
+        const div = document.getElementById('sub-services');
+        div.style.display = div.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
+<script src="script.js"></script>
+</body>
+</html>

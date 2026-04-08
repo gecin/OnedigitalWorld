@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GECTO – Frequently Asked Questions</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        /* FAQ Page Specific Styles */
+        .faq-hero {
+            width: 100%;
+            height: 400px;
+            background-image: url('gecto.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-top: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .faq-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .faq-hero h1 {
+            position: relative;
+            z-index: 2;
+            color: var(--gold);
+            font-size: 56px;
+            text-shadow: 2px 2px 8px black;
+        }
+        /* Solitaire-style card grid */
+        .solitaire-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 60px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+            position: relative;
+        }
+        .faq-card-solitaire {
+            background: white;
+            width: 280px;
+            border-radius: 20px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--gold);
+            /* slight rotation for solitaire effect */
+        }
+        /* Apply alternating rotations */
+        .faq-card-solitaire:nth-child(1) { transform: rotate(-3deg) translateY(0px); }
+        .faq-card-solitaire:nth-child(2) { transform: rotate(2deg) translateY(-8px); }
+        .faq-card-solitaire:nth-child(3) { transform: rotate(-1deg) translateY(-4px); }
+        .faq-card-solitaire:nth-child(4) { transform: rotate(4deg) translateY(-12px); }
+        .faq-card-solitaire:nth-child(5) { transform: rotate(-2deg) translateY(-6px); }
+        .faq-card-solitaire:hover {
+            transform: scale(1.02) rotate(0deg);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .card-question {
+            background: var(--green);
+            color: var(--gold);
+            padding: 20px;
+            font-weight: 800;
+            font-size: 18px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .card-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: var(--green-bg);
+            padding: 0 18px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1a3a1a;
+        }
+        .faq-card-solitaire.active .card-answer {
+            max-height: 200px;  /* enough for 4 lines */
+            padding: 18px;
+        }
+        /* Bottom project section */
+        .bottom-project {
+            background: linear-gradient(135deg, var(--green), #0a3a0a);
+            border-radius: 40px;
+            margin: 60px 20px;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        .project-text {
+            flex: 1;
+            text-align: center;
+        }
+        .project-text h3 {
+            color: var(--gold);
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .project-text p {
+            color: white;
+            font-size: 18px;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+        .project-image {
+            flex: 1;
+            text-align: center;
+        }
+        .project-image img {
+            max-width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 3px solid var(--gold);
+            max-height: 250px;
+            width: auto;
+        }
+        @media (max-width: 768px) {
+            .faq-hero h1 { font-size: 36px; }
+            .faq-hero { height: 300px; }
+            .solitaire-grid { gap: 15px; }
+            .faq-card-solitaire { width: 260px; }
+            .faq-card-solitaire:nth-child(odd) { transform: rotate(0deg); }
+            .faq-card-solitaire:nth-child(even) { transform: rotate(0deg); }
+            .bottom-project { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><img src="gecto-logo.png" alt="GECTO Logo"></div>
+    <button class="menu-btn">☰ MENU</button>
+</header>
+
+<div class="menu-overlay">
+    <button class="close-menu">✕</button>
+    <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="services.html">SERVICES</a></li>
+    <li><a href="projects.html">PROJECTS</a></li>
+    <li><a href="game.html">GAME HUB</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="apply.html">CAREERS</a></li>
+</ul>
+</div>
+
+<!-- Hero Image -->
+<div class="faq-hero">
+    <h1>Frequently Asked Questions</h1>
+</div>
+
+<!-- Solitaire-style FAQ Cards -->
+<div class="solitaire-grid">
+    <!-- Card 1 -->
+    <div class="faq-card-solitaire">
+        <div class="card-question">1. Why should we work with GECTO?</div>
+        <div class="card-answer">
+            GECTO offers complete digital transformation – from websites and apps to e‑commerce and gamified marketing. Every client gets a custom BrandQuest game to boost engagement. We also provide lifetime maintenance and security patching.
+        </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="faq-card-solitaire">
+        <div class="card-question">2. Why choose GECTO over others?</div>
+        <div class="card-answer">
+            We are rooted in African strength and legacy. Our unique edge: mandatory BrandQuest games, SkillForge edutainment, proactive patching, and a commitment to moving businesses from paper to digital databases.
+        </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="faq-card-solitaire">
+        <div class="card-question">3. What is the future of GECTO?</div>
+        <div class="card-answer">
+            By 2032, GECTO will be one of the Africa's leading software powerhouse, with HQ in Gwanda. We will digitise at least 100 traditional businesses and bring SkillForge games to schools and most rural areas.
+        </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="faq-card-solitaire">
+        <div class="card-question">4. Who is GECTO's target audience?</div>
+        <div class="card-answer">
+            Everyone! Traditional businesses on paper records, kids and youths (5–25) for SkillForge games, and startups/SMEs that need websites, apps, and gamified marketing. We serve all ages and sectors.
+        </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="faq-card-solitaire">
+        <div class="card-question">5. Why do people need GECTO?</div>
+        <div class="card-answer">
+            Because the world is digital. Paper‑based businesses are invisible. Young people need practical skills. GECTO bridges the gap with affordable, scalable solutions, gamified education, and e‑commerce.
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Project: ONE DIGITALISED WORLD with one.jpg -->
+<div class="bottom-project">
+    <div class="project-text">
+        <h3>🌍 The ONE DIGITALISED WORLD Project</h3>
+        <p>Transforming Zimbabwe into a fully digital economy by 2032 – empowering businesses, schools, and communities through technology.</p>
+    </div>
+    <div class="project-image">
+        <img src="one.jpg" alt="One Digitalised World">
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2026 GECTO – Glorious Eland City Tech One. Bulawayo, Zimbabwe → Gwanda HQ 2031</p>
+        <p style="margin-top: 10px;">#OneDigitalisedWorld #Vision2032</p>
+    </div>
+</footer>
+
+<script>
+    // Toggle answer on card click (solitaire style)
+    const cards = document.querySelectorAll('.faq-card-solitaire');
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Prevent closing if clicking inside answer? we just toggle
+            this.classList.toggle('active');
+        });
+    });
+</script>
+<script src="script.js"></script>
+</body>
+</html>
